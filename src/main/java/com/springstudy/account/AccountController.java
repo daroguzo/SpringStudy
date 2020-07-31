@@ -1,5 +1,6 @@
 package com.springstudy.account;
 
+import com.springstudy.domain.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 public class AccountController {
 
     private final SignUpFormValidator signUpFormValidator;
+    private final AccountRepository accountRepository;
 
     @InitBinder("signUpForm")
     public void initBinter(WebDataBinder webDataBinder) {
@@ -35,9 +37,16 @@ public class AccountController {
             return "account/sign-up";
         }
 
-        // TODO 회원 가입 처리
+        Account account = Account.builder()
+                .email(signUpForm.getEmail())
+                .nickname(signUpForm.getNickname())
+                .password(signUpForm.getPassword()) // TODO pwd encoding
+                .studyCreatedByWeb(true)
+                .studyEnrollmentResultByWeb(true)
+                .studyUpdatedByWeb(true)
+                .build();
+        Account newAccount = accountRepository.save(account);
+
         return "redirect:/";
     }
-
-
 }

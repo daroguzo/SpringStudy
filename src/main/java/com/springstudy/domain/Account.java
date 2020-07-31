@@ -48,7 +48,7 @@ public class Account {
 
     private boolean studyEnrollmentResultByWeb;
 
-    private boolean studyUpdateResultByEmail;
+    private boolean studyUpdatedByEmail;
 
-    private boolean studyUpdateResultByWeb;
+    private boolean studyUpdatedByWeb;
 }
