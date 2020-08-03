@@ -59,6 +59,6 @@ public class Account {
 
     public void completeSignUp() {
         this.emailVerified = true;
-        this.joinedAt = LocalDateTime.now()
+        this.joinedAt = LocalDateTime.now();
     }
 }
