@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <title>Owl Study</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/node_modules/jdenticon/dist/jdenticon.min.js"></script>
     <style>
         .container {
@@ -76,10 +76,32 @@
     </div>
 </nav>
 
+<script type="application/javascript" th:fragment="form-validation">
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }, false)
+    }())
+</script>
+
 <footer th:fragment="footer">
     <div class="row justify-content-center">
-        <a th:href="@{https://github.com/daroguzo}">GitHub</a><br>
-        <small class="d-block mb-3 text-muted">2020 daroguzo</small>
+        <a th:href="@{https://github.com/daroguzo}">daroguzo GitHub</a><br>
+        <small class="d-block mb-3 text-muted">2020</small>
     </div>
 </footer>
 

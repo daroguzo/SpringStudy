@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments.html :: head"></head>
 <body class="bg-light">
-    <div th:replace="fragments.html :: main-nav"></div>
+    <nav th:replace="fragments.html :: main-nav"></nav>
     <div class="alert alert-warning" role="alert" th:if="${account != null && !account.emailVerified}">
         스터디올레 가입을 완료하려면 <a href="#" th:href="@{/check-email}" class="alert-link">계정 인증 이메일을 확인</a>하세요.
     </div>
@@ -16,10 +16,5 @@
         </div>
         <footer th:replace="fragments.html :: footer"></footer>
     </div>
-    <script type="application/javascript" th:fragment="form-validation">
-        (function () {
-
-        }())
-    </script>
 </body>
 </html>
