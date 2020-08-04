@@ -2,8 +2,10 @@ package com.springstudy.settings;
 
 import com.springstudy.domain.Account;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Profile {
 
     private String bio;
