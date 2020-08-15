@@ -1,6 +1,8 @@
 package com.springstudy.account;
 
+import com.springstudy.WithAccount;
 import com.springstudy.domain.Account;
+import com.springstudy.settings.SettingsController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,5 +114,4 @@ class AccountControllerTest {
         assertNotNull(account.getEmailCheckToken());
         then(javaMailSender).should().send(any(SimpleMailMessage.class));
     }
-
 }
